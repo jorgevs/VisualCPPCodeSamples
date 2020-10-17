@@ -1,0 +1,206 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					],
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "examples/arrays",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "examples/arrays",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "examples/classes",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "examples/classes",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "examples/inheritance",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "examples/inheritance",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "examples/strings",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "examples/strings",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "examples/vector",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "examples/vector",
+					"targetIndexes" : 
+					[
+						5
+					]
+				},
+				{
+					"build" : "examples/wxWidgets",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "examples/wxWidgets",
+					"targetIndexes" : 
+					[
+						6
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					],
+					"name" : "VisualCPPCodeSamples",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 2,
+					"id" : "Person::@2f9b1c32b4fa40746a8a",
+					"jsonFile" : "target-Person-Debug-584494efbdb772141890.json",
+					"name" : "Person",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "Tweeter::@f41db3bfdba0736eabb8",
+					"jsonFile" : "target-Tweeter-Debug-ad38ad45dc1fd5d457cc.json",
+					"name" : "Tweeter",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "VisualCPPCodeSamples::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-VisualCPPCodeSamples-Debug-7e86ae37e983a95133bf.json",
+					"name" : "VisualCPPCodeSamples",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "arrayContainer::@20a2adc1deb8caa3ea34",
+					"jsonFile" : "target-arrayContainer-Debug-2ab52cdb84c1ed717337.json",
+					"name" : "arrayContainer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "printString::@2488b06ebebb0dadb80c",
+					"jsonFile" : "target-printString-Debug-ff1d2340db523ecf5a4f.json",
+					"name" : "printString",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "vectorContainer::@c9e536a2bb5dfd68c75a",
+					"jsonFile" : "target-vectorContainer-Debug-3ff5fbb55e84775bd735.json",
+					"name" : "vectorContainer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "wxWidgetsProject::@b8d53e6716db8bd2e119",
+					"jsonFile" : "target-wxWidgetsProject-Debug-1d9edb9e220bb1354a2f.json",
+					"name" : "wxWidgetsProject",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/StorageHome/workspace_VisualStudio/VisualCPPCodeSamples/out/build/x64-Debug (default)",
+		"source" : "D:/StorageHome/workspace_VisualStudio/VisualCPPCodeSamples"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}

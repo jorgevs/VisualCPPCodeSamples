@@ -1,0 +1,10 @@
+# ninja log v5
+1	934	624657953	examples/inheritance/CMakeFiles/Tweeter.dir/Tweeter.cpp.obj	756f2aa8e63d11e1
+4	938	624657953	examples/inheritance/CMakeFiles/Tweeter.dir/Person.cpp.obj	6ed324df00a79d2e
+939	1678	624657954	examples/inheritance/Tweeter.exe	a148f2ab50df1f80
+0	2684	624662411	examples/wxWidgets/CMakeFiles/wxWidgetsProject.dir/MyApp.cpp.obj	6661561c8d5b540b
+4	2692	624662411	examples/wxWidgets/CMakeFiles/wxWidgetsProject.dir/main.cpp.obj	fe1be4dd99d74284
+7	2720	624662411	examples/wxWidgets/CMakeFiles/wxWidgetsProject.dir/MyFrame.cpp.obj	b157b014f8f3835
+5	3438	624662492	examples/wxWidgets/CMakeFiles/wxWidgetsProject.dir/MyFrame.cpp.obj	e8ce2e124c1c5195
+8	3444	624662492	examples/wxWidgets/CMakeFiles/wxWidgetsProject.dir/main.cpp.obj	c8319f229d8add1
+2	3447	624662492	examples/wxWidgets/CMakeFiles/wxWidgetsProject.dir/MyApp.cpp.obj	93e86e9c47137363
