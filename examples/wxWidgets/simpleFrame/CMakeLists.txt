@@ -17,7 +17,7 @@ add_executable(simpleFrame WIN32 ${SOURCE_FILES})
 
 SET(wxWidgets_USE_LIBS)
 
-find_package(wxWidgets COMPONENTS core base REQUIRED)
+find_package(wxWidgets COMPONENTS net core base REQUIRED)
 if(wxWidgets_FOUND)
     message("wxWidgets found!")
     include(${wxWidgets_USE_FILE})
