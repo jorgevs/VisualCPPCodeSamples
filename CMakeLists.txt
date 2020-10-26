@@ -11,6 +11,7 @@ add_subdirectory(examples/strings)
 add_subdirectory(examples/vector)
 add_subdirectory(examples/wxWidgets/simpleFrame)
 add_subdirectory(examples/raylib)
+add_subdirectory(examples/SFML/tetris)
 
 # Add source to this project's executable.
 add_executable (VisualCPPCodeSamples "main.cpp")
