@@ -13,5 +13,5 @@ file(COPY ${ALL_REQUIRED_RESOURCES} DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/imag
 
 
 find_package(SFML 2.5.1 COMPONENTS graphics audio window system REQUIRED)
-add_executable(${PROJECT_NAME} main.cpp)
+add_executable(${PROJECT_NAME} "main.cpp" "Game.cpp" "Game.h")
 target_link_libraries(${PROJECT_NAME} sfml-graphics sfml-audio)
