@@ -1,9 +1,10 @@
 #include "Game.h"
 
 const Time Game::TimePerFrame = seconds(1.f / 60.f);
+const int NUM_PIXELS = 24;
 
 
-Game::Game() : window(VideoMode(320, 480), ".:TETRIS:.") {
+Game::Game() : window(VideoMode(600, 760), ".:TETRIS:.") {
 	// Seeds the pseudo - random number generator used by rand() with the value seed.
 	// time's parameter is an alternate return path. If you pass in NULL (or 0) it is ignored. 
 	// Otherwise, you must pass the address of a time_t object which will be filled with the time.
@@ -15,9 +16,9 @@ Game::Game() : window(VideoMode(320, 480), ".:TETRIS:.") {
 	this->timer = 0;
 	this->delay = 0.3;
 
-	this->t1.loadFromFile("images/tiles.png");
-	this->t2.loadFromFile("images/background.png");
-	this->t3.loadFromFile("images/frame.png");
+	this->t1.loadFromFile("images/tetrisTiles.png");
+	this->t2.loadFromFile("images/tetrisBackground.png");
+	//this->t3.loadFromFile("images/tetrisFrame.png");
 
 	this->s.setTexture(t1);
 	this->background.setTexture(t2);
@@ -165,16 +166,16 @@ void Game::render() {
 			if (field[i][j] == 0) {
 				continue;
 			}
-			s.setTextureRect(IntRect(field[i][j] * 18, 0, 18, 18));
-			s.setPosition(j * 18, i * 18);
-			s.move(28, 31); //offset
+			s.setTextureRect(IntRect(field[i][j] * NUM_PIXELS, 0, NUM_PIXELS, NUM_PIXELS));
+			s.setPosition(j * NUM_PIXELS, i * NUM_PIXELS);
+			s.move(30, 30); //offset
 			window.draw(s);
 		}
 	}
 	for (int i = 0; i < 4; i++) {
-		s.setTextureRect(IntRect(colorNum * 18, 0, 18, 18));
-		s.setPosition(a[i].x * 18, a[i].y * 18);
-		s.move(28, 31); //offset
+		s.setTextureRect(IntRect(colorNum * NUM_PIXELS, 0, NUM_PIXELS, NUM_PIXELS));
+		s.setPosition(a[i].x * NUM_PIXELS, a[i].y * NUM_PIXELS);
+		s.move(30, 30); //offset
 		window.draw(s);
 	}
 

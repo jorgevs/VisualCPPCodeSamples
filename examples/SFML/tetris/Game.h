@@ -25,7 +25,8 @@ private:
 
 	static const Time TimePerFrame;
 	Clock clock;
-	static const int M = 20;
+
+	static const int M = 25;
 	static const int N = 10;
 
 	Texture t1, t2, t3;
