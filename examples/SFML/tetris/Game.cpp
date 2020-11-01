@@ -1,4 +1,5 @@
 #include "Game.h"
+#include <iostream>
 
 const Time Game::TimePerFrame = seconds(1.f / 60.f);
 const int NUM_PIXELS = 24;
@@ -9,7 +10,7 @@ Game::Game() : window(VideoMode(600, 760), ".:TETRIS:.") {
 	// time's parameter is an alternate return path. If you pass in NULL (or 0) it is ignored. 
 	// Otherwise, you must pass the address of a time_t object which will be filled with the time.
 	srand(time(0));
-
+	
 	this->colorNum = 1;
 	this->dx = 0;
 	this->rotate = false;
@@ -28,22 +29,23 @@ Game::Game() : window(VideoMode(600, 760), ".:TETRIS:.") {
 	createNewFigure();
 }
 
-Game::~Game() {}
-
 void Game::run() {
-	Clock clock;
+	Clock clock; // Starts counting as soon as it is created
 	Time timeSinceLastUpdate = Time::Zero;
 
 	while (window.isOpen()) {
-		/*Time dt = clock.restart();
-		timeSinceLastUpdate += dt;
-		while (timeSinceLastUpdate > TimePerFrame) {
-			timeSinceLastUpdate -= TimePerFrame;*/
 
 		processEvents();
-		update(TimePerFrame);
+
+		timeSinceLastUpdate += clock.restart();
+		while (timeSinceLastUpdate > TimePerFrame) {
+			timeSinceLastUpdate -= TimePerFrame;
+
+			update(TimePerFrame);
+			std::cout << "update" << std::endl;
+		}
+
 		render();
-		//}
 	}
 }
 
