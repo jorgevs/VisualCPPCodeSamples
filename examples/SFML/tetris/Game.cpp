@@ -37,12 +37,11 @@ void Game::run() {
 
 		processEvents();
 
+		// The following code assures that the update() method is called in a fixed time (60 times per second).
 		timeSinceLastUpdate += clock.restart();
 		while (timeSinceLastUpdate > TimePerFrame) {
 			timeSinceLastUpdate -= TimePerFrame;
-
 			update(TimePerFrame);
-			std::cout << "update" << std::endl;
 		}
 
 		render();
