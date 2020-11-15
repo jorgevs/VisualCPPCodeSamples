@@ -1,10 +1,9 @@
 #include "Game.h"
 #include <iostream>
 
-const Time Game::TimePerFrame = seconds(1.f / 60.f);
-const int NUM_PIXELS = 24;
-
-
+/**
+* Game Constructor
+*/
 Game::Game() : window(VideoMode(600, 760), ".:TETRIS:.") {
 	// Seeds the pseudo - random number generator used by rand() with the value seed.
 	// time's parameter is an alternate return path. If you pass in NULL (or 0) it is ignored. 
@@ -14,6 +13,7 @@ Game::Game() : window(VideoMode(600, 760), ".:TETRIS:.") {
 	this->colorNum = 1;
 	this->dx = 0;
 	this->rotate = false;
+	this->isLineRemoved = false;
 	this->timer = 0;
 	this->delay = 0.3;
 
@@ -25,24 +25,36 @@ Game::Game() : window(VideoMode(600, 760), ".:TETRIS:.") {
 	this->background.setTexture(t2);
 	this->frame.setTexture(t3);
 
+
+	buffer.loadFromFile("sounds/deleteLine.ogg");
+	sound.setBuffer(buffer);
+	
 	// Initialize "a"
 	createNewFigure();
 }
 
+/**
+* This is the principal method, which orchestates all the operations to be 
+* executed in the game.
+*/
 void Game::run() {
 	Clock clock; // Starts counting as soon as it is created
+	const Time TimePerFrame = seconds(1.f / 60.f);
 	Time timeSinceLastUpdate = Time::Zero;
 
 	while (window.isOpen()) {
 
 		processEvents();
 
-		// The following code assures that the update() method is called in a fixed time (60 times per second).
+		// The following code assures that the update() method is called once per frame,
+		// in a fixed time (60 frames per second in this case).
 		timeSinceLastUpdate += clock.restart();
 		while (timeSinceLastUpdate > TimePerFrame) {
 			timeSinceLastUpdate -= TimePerFrame;
 			update(TimePerFrame);
 		}
+
+		playSounds();
 
 		render();
 	}
@@ -55,9 +67,13 @@ void Game::processEvents() {
 			window.close();
 		}
 		if (e.type == Event::KeyPressed) {
-			if (e.key.code == Keyboard::Up) rotate = true;
-			else if (e.key.code == Keyboard::Left) dx = -1;
-			else if (e.key.code == Keyboard::Right) dx = 1;
+			if (e.key.code == Keyboard::Up) {
+				rotate = true;
+			} else if (e.key.code == Keyboard::Left) {
+				dx = -1;
+			} else if (e.key.code == Keyboard::Right) {
+				dx = 1;
+			}
 		}
 	}
 
@@ -67,10 +83,8 @@ void Game::processEvents() {
 	}
 }
 
-void Game::update(Time dt) {
-	float time = clock.getElapsedTime().asSeconds();
-	clock.restart();
-	timer += time;
+void Game::update(Time deltaTime) {
+	timer += deltaTime.asSeconds();
 
 	//// <- Move -> ///
 	// Store old "a" values into "b" and updates "a" based on the move
@@ -119,7 +133,7 @@ void Game::update(Time dt) {
 			createNewFigure();
 		}
 
-		// Restart the timer
+		// After every tick restart the timer
 		timer = 0;
 	}
 
@@ -133,16 +147,29 @@ void Game::update(Time dt) {
 			}
 			field[k][j] = field[i][j];
 		}
-		// If count is lower than N moves "k" along with "i", otherwise  it will help to overwrite the 
+		// If count is lower than N moves "k" along with "i", otherwise it will help to overwrite the 
 		// completed row (where count was iqual to N) in the next iteration
 		if (count < N) {
 			k--;
+		} else {
+			isLineRemoved = true;
 		}
 	}
 
 	dx = 0;
 	rotate = false;
 	delay = 0.3;
+}
+
+
+/**
+* Plays any global sound based on flags
+*/
+void Game::playSounds() {
+	if (isLineRemoved) {
+		sound.play();
+		isLineRemoved = false;
+	}
 }
 
 void Game::createNewFigure() {
@@ -186,9 +213,9 @@ void Game::render() {
 }
 
 /**
-	This function checks if a given point is out of bounds or if it collides
-	with another existing point in the field.
-	returns 0 if out of bounds or collides
+* This function checks if a given point is out of bounds or if it collides 
+* with another existing point in the field.
+* Returns 0 if out of bounds or collides
 */
 bool Game::check() {
 	for (int i = 0; i < 4; i++) {

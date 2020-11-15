@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <time.h>
 
 using namespace sf;
@@ -14,6 +15,7 @@ public:
 private:
 	void processEvents();
 	void update(Time dt);
+	void playSounds();
 	void render();
 
 	bool check();
@@ -22,17 +24,18 @@ private:
 private:
 	RenderWindow window;
 
-	static const Time TimePerFrame;
-	Clock clock;
-
 	static const int M = 25;
 	static const int N = 10;
+	static const int NUM_PIXELS = 24;
 
 	Texture t1, t2, t3;
 	Sprite s, background, frame;
 
+	SoundBuffer buffer;
+	Sound sound;
+
 	int dx, colorNum;
-	bool rotate;
+	bool rotate, isLineRemoved;
 	float timer, delay;
 
 	int field[M][N] = { 0 };
